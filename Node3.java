@@ -118,13 +118,20 @@ public class Node3 {
     Boolean updated = false;
     Integer i;
 
-    for (i = 0; i < 4; ) {
+    for (i = 0; i < 4; i++) {
       distanceTable[i][p.src] = p.distanceTable[i][p.src];
-      if (distanceTable[i][3] > p.distanceTable[i][p.src] + distanceTable[i][3]) {
-        distanceTable[i][3] = p.distanceTable[i][p.src] + distanceTable[i][3];
+      if (distanceTable[i][3] > p.distanceTable[i][p.src] + distanceTable[p.src][3]) {
+        distanceTable[i][3] = p.distanceTable[i][p.src] + distanceTable[p.src][3];
         updated = true;
+        System.out.println("mudando: "+updated);
+
       }
     }
+        System.out.println("antes de verificar: "+updated);
+
+
+    p("Recebeu mensagem de "+p.src);
+    showTable();
 
     if (updated) {
       toLayer2(0);

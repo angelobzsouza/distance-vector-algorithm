@@ -121,11 +121,16 @@ public class Node0 {
 
     for (i = 0; i < 4; i++) {
       distanceTable[i][p.src] = p.distanceTable[i][p.src];
-      if (distanceTable[i][0] > p.distanceTable[i][p.src] + distanceTable[i][0]) {
-        distanceTable[i][0] = p.distanceTable[i][p.src] + distanceTable[i][0];
+      if (distanceTable[i][0] > p.distanceTable[i][p.src] + distanceTable[p.src][0]) {
+        distanceTable[i][0] = p.distanceTable[i][p.src] + distanceTable[p.src][0];
         updated = true;
+        System.out.println("mudando: "+updated);
       }
     }
+
+        System.out.println("antes de verificar: "+updated);
+    p("Recebeu mensagem de "+p.src);
+    showTable();
 
     if (updated) {
       toLayer2(1);
@@ -137,12 +142,6 @@ public class Node0 {
   private static void showTable () {
     Integer i;
     Integer j;
-
-    for (i = 0; i < 4; i++) {
-      for (j = 0; j < 4; j++) {
-        p("A distancia de "+j+" ate "+i+" e: "+distanceTable[i][j]);
-      } 
-    }
 
     p("\n");
     p("Tabela formatada:");
