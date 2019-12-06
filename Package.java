@@ -1,3 +1,9 @@
+/*
+Angelo Bezerra de Souza - 726496
+Bernardo Pinheiro Camargo - 620343
+Gabriel Peres de Andrade - 726517
+Giuliano Crespe - 743543
+*/
 import java.io.Serializable;
 
 public class Package implements Serializable {
